@@ -13,7 +13,16 @@ const pkgs = struct {
 };
 
 pub fn build(b: *std.build.Builder) void {
-    const target = b.standardTargetOptions(.{});
+    // workaround for windows not having visual studio installed
+    // (makes .gnu the default target)
+    const native_target = if (std.builtin.os.tag != .windows)
+        std.zig.CrossTarget{}
+    else
+        std.zig.CrossTarget{ .abi = .gnu };
+
+    const target = b.standardTargetOptions(.{
+        .default_target = native_target,
+    });
     const mode = b.standardReleaseOptions();
 
     const exe = b.addExecutable("hello-triangle", "src/main.zig");
