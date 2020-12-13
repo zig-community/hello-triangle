@@ -8,9 +8,13 @@ Opens a window and draws a nice little triangle with OpenGL 3.3.
 
 Checkout all submodules, then use `zig` to build the example.
 ```sh
-git submodule update --init --recursive # fetches ZWL
+git clone https://github.com/zig-community/hello-triangle --recursive
+cd hello-triangle
 zig build run                           # builds the example and runs it
 ```
 
 ## Dependencies
 This project depends on the awesome [Zig Window Library (ZWL)](https://github.com/Aransentin/ZWL/) by @Aransentin.
+
+## Supported Platforms
+Right now, ZWL only supports *Linux* and *Windows*. No support for *MacOS* at the moment.
