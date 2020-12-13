@@ -1,0 +1,3 @@
+[submodule "deps/ZWL"]
+	path = deps/zwl
+	url = https://github.com/Aransentin/ZWL/
