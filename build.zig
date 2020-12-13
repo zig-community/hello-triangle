@@ -36,6 +36,8 @@ pub fn build(b: *std.build.Builder) void {
 
     if (target.isWindows()) {
         exe.linkSystemLibrary("opengl32");
+    } else if (target.isDarwin()) {
+        @panic("No support for darwin systems at the moment!");
     } else {
         exe.linkLibC();
         exe.linkSystemLibrary("X11");
